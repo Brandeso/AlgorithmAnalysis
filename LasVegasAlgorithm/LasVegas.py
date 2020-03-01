@@ -1,20 +1,37 @@
 import random
+import time
 
-def partition(arr, low, high):
-    i = (low-1)
-    randn = random.randInt(low,high+1)
-    pivot = arr[randn]
+def quicksort(arr, start , stop):
+    if(start < stop):
+        pivotindex = partitionrand(arr, start, stop)
+        quicksort(arr , start , pivotindex - 1)
+        quicksort(arr, pivotindex + 1, stop)
 
-    for j in range(low, high):
-        if arr[j] < pivot:
-            i = i+1
-            arr[i],arr[j] = arr[j],arr[i]
+def partitionrand(arr , start, stop):
+    randpivot = random.randrange(start, stop)
+    arr[start], arr[randpivot] = arr[randpivot], arr[start]
+    return partition(arr, start, stop)
 
-    arr[i+1],arr[randn] = arr[randn],arr[i+1]
-    return(i+1)
+def partition(arr,start,stop):
+    pivot = start
+    i = start + 1
+    for j in range(start + 1, stop + 1):
+        if arr[j] <= arr[pivot]:
+            arr[i] , arr[j] = arr[j] , arr[i]
+            i = i + 1
+    arr[pivot] , arr[i - 1] = arr[i - 1] , arr[pivot]
+    pivot = i - 1
+    return (pivot)
 
-def quickSort(arr, low, high)
-    if low < high:
-        pi = partition(arr, low, high):
-        quickSort(arr, low, pi-1)
-        quickSort(arr, pi+1, high)
+f = open('randomInts/random_1000.txt', 'r')
+x = f.read().splitlines()
+f.close()
+
+for i in range(len(x)):
+    x[i] = int(x[i])
+
+start_time = time.time()
+quicksort(x, 0, len(x)-1)
+end_time = time.time() - start_time
+print(x)
+print('----- %s seconds -----' % end_time)

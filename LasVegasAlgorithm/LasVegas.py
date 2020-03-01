@@ -23,7 +23,7 @@ def partition(arr,start,stop):
     pivot = i - 1
     return (pivot)
 
-f = open('randomInts/random_1000.txt', 'r')
+f = open('randomInts/random_2000.txt', 'r')
 x = f.read().splitlines()
 f.close()
 

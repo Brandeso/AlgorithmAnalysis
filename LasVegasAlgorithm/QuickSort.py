@@ -39,7 +39,7 @@ def quickSort(arr,low,high):
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 
-f = open('randomInts/random_2000.txt', 'r')
+f = open('randomInts/random_10000.txt', 'r')
 x = f.read().splitlines()
 f.close()
 

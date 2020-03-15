@@ -9,6 +9,9 @@
 with open('values.txt', 'r') as f:
     backpack = [[int(num) for num in line.split(',')] for line in f]
 
+# Definimos los valores y los pesos
+wts = backpack[0]
+vls = backpack[1]
 # Le solicitamos al usuario nos indique la capacidad de la mochila
 capacity = input('Enter the backpack capacity: ')
 

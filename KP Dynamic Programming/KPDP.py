@@ -34,4 +34,4 @@ for index in range(h):
 
 print('Tabla llenada')
 for i in range(h):
-    print(table[i])
+    print(wts[i], vls[i], table[i])
